@@ -1,0 +1,249 @@
+
+// Cartes des menus
+
+.carte-menu { 
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  margin: 0 0 15px 0;
+  background-color: $white;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  
+    .coche {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 100%;
+      margin-right: -95px;
+      border-radius: 0 1rem 1rem 0;
+      font-size: 1.25rem;
+      color: white;
+      background-color: #99E2D0;
+      transition: all 1s;
+    }
+
+    &:hover {
+      .carte-menu__item {
+      transform: translateX(-80px);
+      transition: transform .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    
+    & .carte-menu-txt {
+      max-width: 50%;
+    }
+
+      & .coche-circle {
+        transition: transform .4s ease-in-out;
+        transform: rotate(1turn);
+      } 
+    }
+}
+
+.menu article{
+  opacity: 0;
+  animation: apparition 1s ease-in-out 0.5s 1 normal forwards;
+  &:nth-of-type(1) { animation-delay: .5s }
+  &:nth-of-type(2) { animation-delay: 1s }
+  &:nth-of-type(3) { animation-delay: 1.5s }
+  &:nth-of-type(4) { animation-delay: 2s }
+}
+
+.coeur-fadein {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  right: 1em;
+  color: transparent;
+  overflow: visible;
+  background-color: transparent;
+}
+
+.child1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+	font-size: 1.5em;
+  color: black;
+  top:0;
+  width: 40px;
+  height: 40px;
+  z-index: 0;
+}
+
+.child2b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 1.5em;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  overflow: hidden;
+    
+  &:hover {
+    background: -webkit-linear-gradient(#f28ef7, #982df0);
+    -webkit-background-clip: text; // Detourage icone
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animradius 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+}
+
+@keyframes animradius {
+  0% {clip-path: ellipse(50% 15% at 50% 88%)}
+  100% {clip-path: ellipse(50% 50%)}
+}
+
+@keyframes apparition {
+  0% {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+// Loader
+
+#loader {
+  &::after {
+    content: "";
+    display: none;
+  }
+}
+
+.background-loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  z-index: 50;
+  opacity: 1;
+  animation: fadeout 3s forwards;
+  animation-delay: 3s;
+}
+
+.lettres-loader {
+  z-index: 60;
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  top: 350px;
+  height: 60px;
+  width: 100%;
+  padding: 10px;
+  font-size: 60px;
+  line-height: 300px;
+  -webkit-box-reflect: below -5px linear-gradient(transparent, rgba(0,0,0,.2));
+  animation: fadeout 3s ease 4s forwards;
+    
+    @media (max-width: 500px) {
+      font-size: 45px;
+      margin-left: -10px;
+    }
+}
+.lettres-loader span {
+  z-index: 100;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Shrikhand";
+  color: $color-primaire;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+  animation: waviscale 3s ease-in-out forwards;
+  animation-delay: calc(.1s * var(--i));
+}
+
+.chargement {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 500px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  z-index: 66;
+  font-weight: 700;
+  color: $color-primaire;
+  background-color: $bgcolor-lighter;
+  animation: fadeout 3s forwards;
+}
+
+.chargement-graph {
+  width: 130px;
+  height: 2px;
+  background: #cfcfcf;
+  margin-top: 22px;
+  position: relative;
+  overflow: hidden;
+  z-index: 67;
+}
+
+.chargement-graph::before{
+  content: '';
+  width: 68px;
+  height: 2px;
+  background: $color-secondaire;
+  position: absolute;
+  left: -34px;
+  animation: graph 1.5s infinite ease;
+}
+
+@keyframes waviscale {
+  0% {
+    scale: (0%);
+  }
+  50% {
+    scale: (100%);
+  }
+  100% {
+    scale: (0%);
+  }
+}
+
+@keyframes graph{
+  50%{
+    left: 96px;
+  }
+}
+
+@keyframes fadeout {
+  0% {opacity: 1;}
+  80% {opacity: 1;}
+  100% {opacity: 0;
+  visibility: hidden;
+  }
+}
