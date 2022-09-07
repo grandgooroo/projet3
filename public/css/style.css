@@ -648,7 +648,7 @@ body {
 
 footer {
   display: flex;
-  flex-direction: row wrap;
+  flex-flow: row wrap;
   padding: 0 10% 5% 5%;
   background-color: #353535;
   color: white;
