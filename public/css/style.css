@@ -220,13 +220,13 @@
 
 @keyframes waviscale {
   0% {
-    scale: 0%;
+    transform: scale(0);
   }
   50% {
-    scale: 100%;
+    transform: scale(1);
   }
   100% {
-    scale: 0%;
+    transform: scale(0);
   }
 }
 @keyframes graph {
@@ -354,7 +354,7 @@ body {
 .presentation {
   justify-content: center;
   text-align: center;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 40px 10px;
   background-color: #f6f6f6;
 }
 
@@ -644,6 +644,10 @@ body {
   color: white;
   background-color: #99E2D0;
   transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.coche-circle {
+  margin-left: -15px;
 }
 
 footer {

@@ -82,7 +82,7 @@ padding: 0;
 .presentation {
     justify-content: center;
     text-align: center;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 40px 10px;
     background-color: $color-quaternaire;
 }
 
@@ -378,6 +378,10 @@ padding: 0;
     color: white;
     background-color: #99E2D0;
     transition: transform .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.coche-circle {
+    margin-left: -15px;
 }
 
 footer {
